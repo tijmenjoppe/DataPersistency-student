@@ -132,7 +132,7 @@ ON CONFLICT DO NOTHING;                                                         
 
 SELECT * FROM test_select('S2.1') AS resultaat
 UNION
-SELECT * FROM test_select('S2.2') AS resultaat
+SELECT 'S2.2 wordt niet getest: geen test mogelijk.' AS resultaat
 UNION
 SELECT * FROM test_select('S2.3') AS resultaat
 UNION
