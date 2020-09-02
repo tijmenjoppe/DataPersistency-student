@@ -84,7 +84,7 @@ DROP VIEW IF EXISTS s1_1_test; CREATE OR REPLACE VIEW s1_1_test AS
 SELECT column_name FROM information_schema.columns WHERE table_schema='public' AND table_name='medewerkers' AND column_name='geslacht';
 
 DROP VIEW IF EXISTS s1_2_test; CREATE OR REPLACE VIEW s1_2_test AS
-SELECT m.naam FROM medewerkers m JOIN afdelingen a ON m.mnr = a.hoofd AND m.afd = a.anr WHERE a.naam = 'ONDERZOEK' AND m.chef = 7839;
+SELECT m.naam FROM medewerkers m JOIN afdelingen a ON m.mnr = a.hoofd WHERE a.naam = 'ONDERZOEK' AND m.chef = 7839;
 
 DROP VIEW IF EXISTS s1_4_test; CREATE OR REPLACE VIEW s1_4_test AS
 SELECT column_name FROM information_schema.columns WHERE table_schema='public' AND table_name='adressen' AND column_name IN ('postcode', 'huisnummer', 'ingangsdatum', 'einddatum', 'telefoon', 'med_mnr');
