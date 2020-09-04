@@ -16,3 +16,4 @@ DROP TABLE IF EXISTS cursussen        CASCADE;
 DROP TABLE IF EXISTS uitvoeringen     CASCADE;
 DROP TABLE IF EXISTS inschrijvingen   CASCADE;
 DROP TABLE IF EXISTS historie         CASCADE;
+DROP TABLE IF EXISTS adressen         CASCADE;
