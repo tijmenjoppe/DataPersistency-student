@@ -35,6 +35,15 @@
 -- geaccepteerd. Test deze regel en neem de gegooide foutmelding op als
 -- commentaar in de uitwerking.
 
+ALTER TABLE medewerkers
+ADD geslacht varchar(2);
+
+ALTER TABLE medewerkers
+ADD CONSTRAINT m_geslacht_chk CHECK (geslacht = 'M' OR geslacht = 'V');
+
+-- "S1.1 heeft de juiste uitwerking op de database!"
+
+-- ------------------------------------------------------------------------
 
 -- S1.2. Nieuwe afdeling
 --
@@ -44,6 +53,18 @@
 -- en valt direct onder de directeur.
 -- Voeg de nieuwe afdeling en de nieuwe medewerker toe aan de database.
 
+INSERT INTO medewerkers (mnr, naam, voorl, functie, chef, gbdatum, maandsal) 
+VALUES (8000, 'DONK', 'A', 'MANAGER', 7839, '1980-06-08', 3000);
+
+INSERT INTO afdelingen (anr, naam, locatie, hoofd) 
+VALUES (50, 'ONDERZOEK', 'ZWOLLE', 8000);
+
+UPDATE medewerkers
+SET afd = 50 WHERE mnr = 8000;
+
+-- "S1.2 heeft de juiste uitwerking op de database!"
+
+-- ------------------------------------------------------------------------
 
 -- S1.3. Verbetering op afdelingentabel
 --
@@ -55,6 +76,27 @@
 --   c) Op enig moment gaat het mis. De betreffende kolommen zijn te klein voor
 --      nummers van 3 cijfers. Los dit probleem op.
 
+CREATE SEQUENCE public.countby10 START WITH 60 INCREMENT BY 10 ;
+
+ALTER TABLE afdelingen
+ALTER COLUMN anr
+SET DEFAULT nextval('countby10');
+
+ALTER TABLE afdelingen ALTER COLUMN anr TYPE NUMERIC(3);
+
+INSERT INTO afdelingen (naam, locatie)
+VALUES ('MARKETING', 'UTRECHT');
+
+INSERT INTO afdelingen (naam, locatie)
+VALUES ('GELDZAKEN', 'UTRECHT');
+
+INSERT INTO afdelingen (naam, locatie)
+VALUES ('EVENTS', 'UTRECHT');
+
+INSERT INTO afdelingen (naam, locatie)
+VALUES ('INKOOP', 'UTRECHT');
+
+-- ------------------------------------------------------------------------
 
 -- S1.4. Adressen
 --
@@ -69,6 +111,23 @@
 --    telefoon      10 cijfers, uniek
 --    med_mnr       FK, verplicht
 
+CREATE TABLE adressen (
+    postcode        VARCHAR(6),
+    huisnummer        VARCHAR(5),
+    ingangsdatum     DATE,
+    einddatum        DATE CONSTRAINT adr_einddatum_chk CHECK (einddatum > ingangsdatum),
+    telefoon        NUMERIC(10) CONSTRAINT adr_telefoon_nn UNIQUE,
+    med_mnr         NUMERIC(4) CONSTRAINT adr_med_mnr_un NOT NULL,
+    CONSTRAINT adr_pk PRIMARY KEY (postcode, huisnummer, ingangsdatum),
+    CONSTRAINT adr_fk FOREIGN KEY (med_mnr) REFERENCES medewerkers DEFERRABLE
+);
+
+INSERT INTO adressen (postcode, huisnummer, ingangsdatum, telefoon, med_mnr)
+VALUES ('3211CT', '318', '2005-06-07', 0685544486, 8000);
+
+-- "S1.4 heeft de juiste uitwerking op de database!"
+
+-- ------------------------------------------------------------------------
 
 -- S1.5. Commissie
 --
@@ -82,7 +141,9 @@ VALUES (8001, 'MULLER', 'TJ', 'TRAINER', 7566, '1982-08-18', 2000, 500);
 INSERT INTO medewerkers (mnr, naam, voorl, functie, chef, gbdatum, maandsal, comm)
 VALUES (8002, 'JANSEN', 'M', 'VERKOPER', 7698, '1981-07-17', 1000, NULL);
 
-
+ALTER TABLE medewerkers
+ADD CONSTRAINT med_comm_verkoper
+CHECK (((functie != 'VERKOPER') OR (comm IS NOT NULL)) AND ((functie = 'VERKOPER') OR (comm ISNULL)));
 
 -- -------------------------[ HU TESTRAAMWERK ]--------------------------------
 -- Met onderstaande query kun je je code testen. Zie bovenaan dit bestand
