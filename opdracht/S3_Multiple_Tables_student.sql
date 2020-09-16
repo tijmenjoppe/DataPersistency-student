@@ -28,13 +28,13 @@
 
 -- S3.1.
 -- Produceer een overzicht van alle cursusuitvoeringen; geef de
--- cursuscode, de begindatum, de cursuslengte en de naam van de docent.
+-- code, de begindatum, de lengte en de naam van de docent.
 -- DROP VIEW IF EXISTS s3_1; CREATE OR REPLACE VIEW s3_1 AS                                                     -- [TEST]
 
 
 -- S3.2.
--- Geef in twee kolommen naast elkaar de naam van elke cursist (`cursist`)
--- die een S02-cursus heeft gevolgd, met de naam van de docent (`docent`).
+-- Geef in twee kolommen naast elkaar de achternaam van elke cursist (`cursist`)
+-- van alle S02-cursussen, met de achternaam van zijn cursusdocent (`docent`).
 -- DROP VIEW IF EXISTS s3_2; CREATE OR REPLACE VIEW s3_2 AS                                                     -- [TEST]
 
 

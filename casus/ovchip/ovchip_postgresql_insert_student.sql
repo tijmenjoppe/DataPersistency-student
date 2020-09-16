@@ -24,11 +24,11 @@ VALUES (35283, TO_DATE('31-05-2018', 'dd-mm-yyyy'), 2, 25.50, 2),
        (18326, TO_DATE('31-12-2017', 'dd-mm-yyyy'), 2, 0.0, 5);
 
 INSERT INTO adres (adres_id, postcode, straat, huisnummer, woonplaats, reiziger_id)
-VALUES (1, '3511LX', 'Visschersplein ', '37', 'Utrecht', 1),
+VALUES (1, '3511LX', 'Visschersplein', '37', 'Utrecht', 1),
        (2, '3521AL', 'Jaarbeursplein', '6A', 'Utrecht', 2),
        (3, '6707AA', 'Stadsbrink', '375', 'Wageningen', 3),
        (4, '3817CH', 'Arnhemseweg', '4', 'Amersfoort', 4),
-       (5, '3572WP', 'Vermeulenstraat ', '22', 'Utrecht', 5);
+       (5, '3572WP', 'Vermeulenstraat', '22', 'Utrecht', 5);
 
 INSERT INTO product (product_nummer, naam, beschrijving, prijs)
 VALUES (1, 'Dagkaart 2e klas', 'Een hele dag onbeperkt reizen met de trein.', 50.60),
@@ -36,7 +36,7 @@ VALUES (1, 'Dagkaart 2e klas', 'Een hele dag onbeperkt reizen met de trein.', 50
        (3, 'Dal Voordeel 40%', '40% korting buiten de spits en in het weekeind.', 50.0),
        (4, 'Amsterdam Travel Ticket', 'Onbeperkt reizen door Amsterdam.', 26.0),
        (5, 'Railrunner', 'Voordelig reizen voor kinderen.', 2.50),
-       (6, 'Studentenreisproduct', 'Gratis of met korting reizen als je studeert', 0.0);
+       (6, 'Studentenreisproduct', 'Gratis of met korting reizen als je studeert.', 0.0);
 
 INSERT INTO ov_chipkaart_product (kaart_nummer, product_nummer, status, last_update)
 VALUES (35283, 3, 'actief', TO_DATE('31-05-2017', 'dd-mm-yyyy')),
