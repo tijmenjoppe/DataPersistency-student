@@ -1,0 +1,18 @@
+<!--
+    Hibernate base file for Data & Persistency practice assignment P6
+    (c) 2019 Hogeschool Utrecht
+    Tijmen Muller (tijmen.muller@hu.nl)
+-->
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
+        <property name="connection.url">jdbc:postgresql://localhost/ovchip</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">postgres</property>
+    </session-factory>
+</hibernate-configuration>
