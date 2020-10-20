@@ -5,11 +5,13 @@
 -- (c) 2020 Hogeschool Utrecht
 -- Tijmen Muller (tijmen.muller@hu.nl)
 -- André Donk (andre.donk@hu.nl)
--- 
+--
 --
 -- Opdracht: schrijf SQL-queries om onderstaande resultaten op te vragen,
 -- aan te maken, verwijderen of aan te passen in de database van de
 -- bedrijfscasus.
+--
+-- NB: Gebruik in elke vraag van deze opdracht een subquery.
 --
 -- Codeer je uitwerking onder de regel 'DROP VIEW ...' (bij een SELECT)
 -- of boven de regel 'ON CONFLICT DO NOTHING;' (bij een INSERT)
@@ -26,7 +28,7 @@
 -- ------------------------------------------------------------------------
 
 
--- S5.1. 
+-- S5.1.
 -- Welke medewerkers hebben zowel de Java als de XML cursus
 -- gevolgd? Geef hun personeelsnummers.
 -- DROP VIEW IF EXISTS s5_1; CREATE OR REPLACE VIEW s5_1 AS                                                     -- [TEST]
@@ -39,15 +41,17 @@
 
 
 -- S5.3.
--- Geef de nummers van alle medewerkers die de Java-cursus niet hebben 
+-- Geef de nummers van alle medewerkers die de Java-cursus niet hebben
 -- gevolgd.
 -- DROP VIEW IF EXISTS s5_3; CREATE OR REPLACE VIEW s5_3 AS                                                     -- [TEST]
 
 
 -- S5.4.
--- Welke medewerkers (naam) hebben ondergeschikten? En welke niet? (Je mag twee
--- queries gebruiken.)
--- DROP VIEW IF EXISTS s5_4; CREATE OR REPLACE VIEW s5_4 AS                                                     -- [TEST]
+-- a. Welke medewerkers hebben ondergeschikten? Geef hun naam.
+-- DROP VIEW IF EXISTS s5_4a; CREATE OR REPLACE VIEW s5_4a AS                                                   -- [TEST]
+
+-- b. En welke medewerkers hebben geen ondergeschikten? Geef wederom de naam.
+-- DROP VIEW IF EXISTS s5_4b; CREATE OR REPLACE VIEW s5_4b AS                                                   -- [TEST]
 
 
 -- S5.5.
@@ -57,14 +61,14 @@
 
 
 -- S5.6.
--- Geef van alle cursusuitvoeringen: de cursuscode, de begindatum en het 
+-- Geef van alle cursusuitvoeringen: de cursuscode, de begindatum en het
 -- aantal inschrijvingen (`aantal_inschrijvingen`). Sorteer op begindatum.
 -- DROP VIEW IF EXISTS s5_6; CREATE OR REPLACE VIEW s5_6 AS                                                     -- [TEST]
 
 
 -- S5.7.
 -- Geef voorletter(s) en achternaam van alle trainers die ooit tijdens een
--- algemene cursus hun eigen chef als cursist hebben gehad.
+-- algemene ('ALG') cursus hun eigen chef als cursist hebben gehad.
 -- DROP VIEW IF EXISTS s5_7; CREATE OR REPLACE VIEW s5_7 AS                                                     -- [TEST]
 
 
@@ -84,7 +88,9 @@ SELECT * FROM test_select('S5.2') AS resultaat
 UNION
 SELECT * FROM test_select('S5.3') AS resultaat
 UNION
-SELECT * FROM test_select('S5.4') AS resultaat
+SELECT * FROM test_select('S5.4a') AS resultaat
+UNION
+SELECT * FROM test_select('S5.4b') AS resultaat
 UNION
 SELECT * FROM test_select('S5.5') AS resultaat
 UNION
