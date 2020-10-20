@@ -1,9 +1,9 @@
-<!--
-    Hibernate base file for Data & Persistency practice assignment P6
-    (c) 2019 Hogeschool Utrecht
-    Tijmen Muller (tijmen.muller@hu.nl)
--->
 <?xml version='1.0' encoding='UTF-8'?>
+
+<!--    Hibernate base file for Data & Persistency practice assignment P6   -->
+<!--    (c) 2019 Hogeschool Utrecht                                         -->
+<!--    Tijmen Muller (tijmen.muller@hu.nl)                                 -->
+
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
