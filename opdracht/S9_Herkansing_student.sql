@@ -28,7 +28,7 @@
 
 -- S9.1  Overstap
 --
--- Jan-Jaap den Draaier is per 1 oktober 2010 manager van personeelszaken.
+-- Jan-Jaap den Draaier is per 1 oktober 2020 manager van personeelszaken.
 -- Hij komt direct onder de directeur te vallen en gaat 2100 euro per
 -- maand verdienen.
 -- Voer alle queries uit om deze wijziging door te voeren.

@@ -436,6 +436,7 @@ SELECT * FROM (VALUES
     ('ALDERS',	    11),
     ('DE WAARD',	13),
     ('JANSEN',	    17),
+    ('MARTENS',	    0),
     ('BLAAK',	    7),
     ('CLERCKX',	    0),
     ('SCHOTTEN',	17),
