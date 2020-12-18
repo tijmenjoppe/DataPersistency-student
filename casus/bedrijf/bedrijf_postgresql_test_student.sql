@@ -442,8 +442,8 @@ SELECT * FROM (VALUES
     ('SCHOTTEN',	17),
     ('DE KONING',	18),
     ('ADAMS',	    0),
-    ('JANSEN',	    0),
+    ('MARTENS',	    0),
     ('SPIJKER',	    1),
     ('MOLENAAR',	1),
-    ('DEN DRAAIER',	5)
+    ('DEN DRAAIER',	4)
 ) answer (naam, tijdsduur);
