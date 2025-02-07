@@ -57,44 +57,28 @@
 --
 -- Er wordt een nieuwe uitvoering gepland voor cursus S02, en wel op de
 -- komende 2 maart. De cursus wordt gegeven in Leerdam door Nick Smit.
--- Voeg deze gegevens toe.
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
+-- Voeg deze gegevens toe.                                                                                       -- [TEST]
 
 
 -- S2.6. Stagiairs
 --
 -- Neem één van je collega-studenten aan als stagiair ('STAGIAIR') en
 -- voer zijn of haar gegevens in. Kies een personeelnummer boven de 8000.
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
+                                                                                        -- [TEST]
 
 
 -- S2.7. Nieuwe schaal
 --
 -- We breiden het salarissysteem uit naar zes schalen. Voer een extra schaal in voor mensen die
 -- tussen de 3001 en 4000 euro verdienen. Zij krijgen een toelage van 500 euro.
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
+                                                                                       -- [TEST]
 
 
 -- S2.8. Nieuwe cursus
 --
 -- Er wordt een nieuwe 6-daagse cursus 'Data & Persistency' in het programma opgenomen.
 -- Voeg deze cursus met code 'D&P' toe, maak twee uitvoeringen in Leerdam en schrijf drie
--- mensen in.
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
+-- mensen in.                                                                                      -- [TEST]
 
 
 -- S2.9. Salarisverhoging
@@ -118,11 +102,7 @@ ON CONFLICT DO NOTHING;                                                         
 -- Je wordt hoofd van de nieuwe afdeling 'FINANCIEN' te Leerdam,
 -- onder de hoede van De Koning. Kies een personeelnummer boven de 8000.
 -- Zorg voor de juiste invoer van deze gegevens.
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
-
-INSERT
-ON CONFLICT DO NOTHING;                                                                                         -- [TEST]
+                                                                                      -- [TEST]
 
 
 
@@ -156,7 +136,7 @@ DELETE FROM uitvoeringen WHERE cursus = 'D&P';
 DELETE FROM cursussen WHERE code = 'D&P';
 DELETE FROM uitvoeringen WHERE locatie = 'LEERDAM';
 INSERT INTO medewerkers (mnr, naam, voorl, functie, chef, gbdatum, maandsal, comm, afd)
-VALUES (7654, 'MARTENS', 'P', 'VERKOPER', 7698, '28-09-1976', 1250, 1400, 30);
+VALUES (7654, 'MARTENS', 'P', 'VERKOPER', 7698, '28-09-1976', 1250, 1400, 30) ON CONFLICT DO NOTHING;
 UPDATE medewerkers SET maandsal = 1600 WHERE mnr = 7499;
 UPDATE medewerkers SET maandsal = 1250 WHERE mnr = 7521;
 UPDATE medewerkers SET maandsal = 2850 WHERE mnr = 7698;
